@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-
+#include <stdlib.h>
 struct student {
   char surname[50];
   char name[50];
