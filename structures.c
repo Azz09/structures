@@ -10,6 +10,7 @@ struct student {
   int physics;
   int chemistry;
 };
+void outputStudents(struct student students[], int count) {
 for (int j = 0; j < count; j++){
 if (students[j].chemistry>=3){
 students[j].chemistry = students[j].chemistry -1;
