@@ -10,6 +10,9 @@ struct student {
   int physics;
   int chemistry;
 };
+for (int j = 0; j < count; j++){
+if (students[j].chemistry>=3){
+students[j].chemistry = students[j].chemistry -1;
 
 typedef struct Node {
   struct student data;
