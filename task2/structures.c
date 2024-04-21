@@ -78,11 +78,11 @@ void inputStudents(Node **root, int count) {
     struct student student;
 
     printf("Enter the student's last name: ");
-    scanf("%s", &student.surname);
+    scanf("%s", student.surname);
     printf("Enter the student's name: ");
-    scanf("%s", &student.name);
+    scanf("%s", student.name);
     printf("Enter the student's middle name: ");
-    scanf("%s", &student.patronymic);
+    scanf("%s", student.patronymic);
     printf("Enter the student's group: ");
     scanf("%d", &student.group);
     printf("Enter the math score: ");
