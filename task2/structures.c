@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+
+
 struct student {
   char surname[50];
   char name[50];
@@ -10,16 +12,24 @@ struct student {
   int physics;
   int chemistry;
 };
+
 void outputStudents(struct student students[], int count) {
-for (int j = 0; j < count; j++){
-if (students[j].chemistry>=3){
-students[j].chemistry = students[j].chemistry -1;
+	for (int j = 0; j < count; j++){
+		if (students[j].chemistry>=3){
+			students[j].chemistry = students[j].chemistry -1;
+		}
+	}
+}
+
+
 
 typedef struct Node {
   struct student data;
   struct Node *left;
   struct Node *right;
 } Node;
+
+
 
 Node *createNode(struct student student) {
   Node *newNode = (Node *)malloc(sizeof(Node));
@@ -35,11 +45,14 @@ Node *createNode(struct student student) {
   return newNode;
 }
 
+
 void insertNode(Node **root, struct student student) {
   if (*root == NULL) {
     *root = createNode(student);
     return;
   }
+
+
 
   Node *current = *root;
   while (true) {
