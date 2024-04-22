@@ -66,11 +66,20 @@ void inorderTraversal(Node *root) {
   }
 
   inorderTraversal(root->left);
-  printf("%s %s %s %d %d %d %d\n", root->data.surname, root->data.name,
-         root->data.patronymic, root->data.group, root->data.mathematics,
-         root->data.physics, root->data.chemistry);
+
+  printf("%s %s %s %d %d %d %d\n",
+  		 root->data.surname,
+  		 root->data.name,
+         root->data.patronymic,
+         root->data.group,
+         root->data.mathematics,
+         root->data.physics,
+         root->data.chemistry
+         );
   inorderTraversal(root->right);
 }
+
+
 
 void inputStudents(Node **root, int count) {
   for (int i = 0; i < count; i++) {
@@ -90,6 +99,10 @@ void inputStudents(Node **root, int count) {
     scanf("%d", &student.physics);
     printf("Enter a chemistry grade: ");
     scanf("%d", &student.chemistry);
+    
+    if (student.chemistry > 2) {
+		student.chemistry = student.chemistry -1;
+    }
 
     insertNode(root, student);
   }
