@@ -11,28 +11,33 @@ struct student {
     int chemistry;
 };
 
+// Function to output students' information
 void* outputStudentsWrapper(void* arg) {
     struct student* students = (struct student*)arg;
-    int count = *((int*)arg + 1); // Assuming count is stored in the next memory location
+    int count = *((int*)arg + 1); // Second argument is count
+    for (int j = 0; j < count; j++) {
+        if (students[j].chemistry >= 3) {
+            students[j].chemistry = students[j].chemistry - 1;
+        }
+    }
 
     for (int i = 0; i < count; i++) {
         printf("%s %s %s %d %d %d %d\n",
-            students[i].surname,
-            students[i].name,
-            students[i].patronymic,
-            students[i].group,
-            students[i].mathematics,
-            students[i].physics,
-            students[i].chemistry);
+               students[i].surname,
+               students[i].name,
+               students[i].patronymic,
+               students[i].group,
+               students[i].mathematics,
+               students[i].physics,
+               students[i].chemistry);
     }
-
-    return NULL; // Returning NULL since the function doesn't have a specific return value
+    return NULL;
 }
 
+// Function to input students' information
 void* inputStudentsWrapper(void* arg) {
     struct student* students = (struct student*)arg;
-    int count = *((int*)arg + 1); // Assuming count is stored in the next memory location
-
+    int count = *((int*)arg + 1); // Second argument is count
     for (int i = 0; i < count; i++) {
         printf("Enter the student's last name: ");
         scanf("%s", students[i].surname);
@@ -49,8 +54,7 @@ void* inputStudentsWrapper(void* arg) {
         printf("Enter a chemistry grade: ");
         scanf("%d", &students[i].chemistry);
     }
-
-    return NULL; // Returning NULL since the function doesn't have a specific return value
+    return NULL;
 }
 
 int main() {
@@ -58,13 +62,14 @@ int main() {
     printf("Enter the number of students: ");
     scanf("%d", &count);
     struct student students[count];
+    int args[2] = { (int)students, count }; // Arguments for wrapper functions
 
-    // Pass the student array and count to the wrapper functions
-    void* (*outputStudentsPtr)(void*) = outputStudentsWrapper;
-    outputStudentsPtr((void*)students, (void*)&count);
+    // Execute the input function
+    inputStudentsWrapper((void*)args);
 
-    void* (*inputStudentsPtr)(void*) = inputStudentsWrapper;
-    inputStudentsPtr((void*)students, (void*)&count);
+    // Execute the output function
+    outputStudentsWrapper((void*)args);
 
     return 0;
 }
+
