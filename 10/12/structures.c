@@ -32,7 +32,7 @@ int main() {
   students[1] = (Student){surname2, "Olga", 'F', 19, "Group 2", 5, 5, 3, print_student, increase_chemistry_grade};
 
   // Количество студентов
-  int numStudents = 2;
+//  int numStudents = 2;
 
   printf("Исходная информация о студентах:\n");
 
@@ -40,8 +40,8 @@ int main() {
 //  for (int i = 0; i < numStudents; i++) {
 //    print_student(&students[i]);
 //  }
- print_student(&students[0])
- print_student(&students[1])
+ print_student(&students[0]);
+ print_student(&students[1]);
 
   printf("\nСнижение оценки по химии всем студентам на 1 балл...\n");
 
