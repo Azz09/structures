@@ -36,25 +36,31 @@ int main() {
 
   printf("Исходная информация о студентах:\n");
 
-  // Печать информации о студентах
-  for (int i = 0; i < numStudents; i++) {
-    print_student(&students[i]);
-  }
+  // Печать информации о студентах без цикла for 
+//  for (int i = 0; i < numStudents; i++) {
+//    print_student(&students[i]);
+//  }
+ print_student(&students[0])
+ print_student(&students[1])
 
   printf("\nСнижение оценки по химии всем студентам на 1 балл...\n");
 
   // Снижение оценки по химии
-  for (int i = 0; i < numStudents; i++) {
-    increase_chemistry_grade(&students[i]);
-  }
+ // for (int i = 0; i < numStudents; i++) {
+ //   increase_chemistry_grade(&students[i]);
+ // }
+ //
+ increase_chemistry_grade(&students[0]);
+ increase_chemistry_grade(&students[1]);
 
   printf("\nОбновленная информация о студентах:\n");
 
   // Печать обновленной информации
-  for (int i = 0; i < numStudents; i++) {
-    print_student(&students[i]);
-  }
-
+//  for (int i = 0; i < numStudents; i++) {
+//    print_student(&students[i]);
+//  }
+ print_student(&students[0]); 
+ print_student(&students[1]);
   return 0;
 }
 
